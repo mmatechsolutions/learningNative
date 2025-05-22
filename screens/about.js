@@ -1,19 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { globalStyles } from '../styles/global';
 
 export default function About(){
     return(
-        <view style={styles.container}>
+        <View style={globalStyles.container}>
             <Text>About</Text>
-        </view>
+        </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:'wheat',
-        alignItems:'center',
-        justifyContent:''
-    }
-})

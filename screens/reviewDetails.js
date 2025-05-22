@@ -1,20 +1,17 @@
-import React from "react"
-import { StyleSheet,View,Text } from "react-native";
 
+import React from "react";
+import { View, Text } from "react-native";
+import { globalStyles } from "../styles/global";
 
-export default function reviewDetails(){
-    return(
-        <view style={styles.container}>
-            <Text>Review Details</Text>
-        </view>
-    )
+export default function ReviewDetails({ route }) {
+  const { title, rating, body, key } = route.params;
+
+  return (
+    <View style={globalStyles.container}>
+      <Text>{title}</Text>
+      <Text>{rating}</Text>
+      <Text>{body}</Text>
+      <Text>{key}</Text>
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:'wheat',
-        alignItems:'center',
-        justifyContent:'center'
-    }
-})
