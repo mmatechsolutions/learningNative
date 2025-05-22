@@ -1,44 +1,70 @@
-// import { createStackNavigator } from "react-navigation-stack";
 
 
-// import About from '../screens/home'
+// import React from 'react';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { TouchableOpacity } from 'react-native';
+// import { Ionicons } from '@expo/vector-icons';
+// import { useNavigation } from '@react-navigation/native';
+// import About from '../screens/about';
+// import Header from '../shared/header' 
 
-// const screens ={
-//     About:{
-//         screen:About,
-//         navigationOptions:{
-//             title: 'GameZone'
-//         }
-//     },
+// const Stack = createNativeStackNavigator();
 
-   
+// export default function AboutStack() {
+//     const navigation = useNavigation();
+//   return (
+//     <Stack.Navigator
+//       screenOptions={{
+//         headerStyle: {
+//           backgroundColor: 'aqua',
+//         },
+//         headerTintColor: 'white',
+//       }}
+//     >
+//       <Stack.Screen
+//         name="About"
+//         component={About}
+//         options={{
+//           headerTitle: ({navigation}) =>{
+//              return(
+//               <Header navigation = {navigation}/>
+//   )},
+//         }}
+//       />
+//     </Stack.Navigator>
+//   );
 // }
 
-// const AboutStack = createStackNavigator(screens,{
-//     defaultNavigationOptions:{
-//         headerTintColor:'white',
-//         headerStyle:{
-//             backgroundColor:'aqua'
-            
-//         }
 
-//     }
-// });
+// import React from 'react';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import About from '../screens/about';
+// import Header from '../shared/header'; // Your custom header component
 
-// export default AboutStack;
+// const Stack = createNativeStackNavigator();
 
+// export default function AboutStack() {
+//   return (
+//     <Stack.Navigator
+//       screenOptions={{
+//         header: ({ navigation }) => (
+//           <Header title="GameZone" navigation={navigation} />
+//         ),
+//       }}
+//     >
+//       <Stack.Screen name="About" component={About} />
+//     </Stack.Navigator>
+//   );
+// }
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import About from '../screens/about'; 
+import About from '../screens/about';
+import Header from '../shared/header';
 
 const Stack = createNativeStackNavigator();
 
-export default function AboutStack() {
-    const navigation = useNavigation();
+export default function AboutStack({ navigation }) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -52,17 +78,12 @@ export default function AboutStack() {
         name="About"
         component={About}
         options={{
-          title: 'About GameZone',
-          headerLeft: () => (
-            <TouchableOpacity
-              onPress={() => navigation.openDrawer()}
-              
-            >
-              <Ionicons name="menu" size={24} color="white" />
-            </TouchableOpacity>
+          headerTitle: () => (
+            <Header title="About GameZone" navigation={navigation} />
           ),
         }}
       />
     </Stack.Navigator>
   );
 }
+

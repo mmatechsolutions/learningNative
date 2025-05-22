@@ -1,54 +1,12 @@
-// import { createStackNavigator } from "react-navigation-stack";
-
-// import Home from '../screens/home';
-// import ReviewDetails from '../screens/reviewDetails'
-
-// const screens ={
-//     Home:{
-//         screen:Home,
-//         navigationOptions:{
-//             title: 'GameZone'
-//         }
-//     },
-
-//     ReviewDetails:{
-//         screen: ReviewDetails,
-//         navigationOptions:{
-//             title: 'GameZone Review'
-//         }
-//     }
-// }
-
-// const HomeStack = createStackNavigator(screens,{
-//     defaultNavigationOptions:{
-//         headerTintColor:'white',
-//         headerStyle:{
-//             backgroundColor:'aqua'
-            
-//         }
-
-//     }
-// });
-
-// export default HomeStack;
-
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-
-
 import Home from '../screens/home';
 import ReviewDetails from '../screens/reviewDetails';
+import Header from '../shared/header';
 
 const Stack = createNativeStackNavigator();
 
-export default function HomeStack() {
-
-    const navigation = useNavigation(); 
-
+export default function HomeStack({ navigation }) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -62,16 +20,11 @@ export default function HomeStack() {
         name="Home"
         component={Home}
         options={{
-          title: 'GameZone',
-          headerLeft: () => (
-            <TouchableOpacity
-              onPress={() => navigation.openDrawer()}
-            >
-              <Ionicons name="menu" size={24} color="white" />
-            </TouchableOpacity>
+          headerTitle: () => (
+            <Header title="GameZone" navigation={navigation} />
           ),
         }}
-/>
+      />
       <Stack.Screen
         name="ReviewDetails"
         component={ReviewDetails}
