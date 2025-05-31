@@ -14,6 +14,21 @@ export const globalStyles = StyleSheet.create({
         color:'smokewhite',
         padding:10,
         borderBottomWidth:1
+    },
+    input:{
+        borderWidth:1,
+        borderColor: '#6ec6cb',
+        padding:10,
+        fontSize:18,
+        borderRadius:6,
+        marginBottom:12
+    },
+    errorText:{
+        color:'crimson',
+        fontWeight:'bold',
+        marginBottom:'10',
+        fontSize:12,
+        textAlign: 'center',
     }
 })
 
