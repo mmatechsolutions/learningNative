@@ -30,16 +30,16 @@ export default function DrawerNavigator() {
     // </Drawer.Navigator>
 
     <Drawer.Navigator>
-  <Drawer.Screen
-    name="GameZone"
-    component={HomeStack}
-    options={{ headerShown: false }}
-  />
-  <Drawer.Screen
-    name="About"
-    component={AboutStack}
-    options={{ headerShown: false }}
-  />
+      <Drawer.Screen
+        name="GameZone"
+        component={HomeStack}
+        options={{ headerShown: false }}
+      />
+      <Drawer.Screen
+        name="About"
+        component={AboutStack}
+        options={{ headerShown: false }}
+      />
 </Drawer.Navigator>
   );
 }
